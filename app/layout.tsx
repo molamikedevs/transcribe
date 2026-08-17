@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme/theme-provider';
 import { geistMono, geistSans } from '@/config/font';
 import { siteConfig } from '@/config/site';
 import { Metadata } from 'next';
@@ -21,7 +22,16 @@ export default function GlobalLayout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
