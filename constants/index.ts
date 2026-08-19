@@ -36,4 +36,58 @@ export const channels: ChannelCardProps[] = [
     indexedCount: 72,
     syncedLabel: '3 hours ago',
   },
+  // 5. Fully synced. Green bar, "Synced 12 hours ago", hover border.
+  {
+    handle: '@devtips',
+    name: 'Dev Tips',
+    avatarUrl: '/avatars/dev-tips.png',
+    videoCount: 183,
+    indexedCount: 183,
+    syncedLabel: '12 hours ago',
+  },
+  // 6. Overcount from deleted videos. Must clamp to green 431 / 431,
+  // not overflow the bar or read as a broken ratio.
+  {
+    handle: '@lexfridman',
+    name: 'Lex Fridman',
+    avatarUrl: '/avatars/lex.png',
+    videoCount: 431,
+    indexedCount: 439,
+    syncedLabel: '2 hours ago',
+  },
+  // 7. Synced with no label. Footer reads "Synced" with no trailing space.
+  {
+    handle: '@nolabel',
+    name: 'No Label Channel',
+    avatarUrl: '/avatars/no-label.png',
+    videoCount: 12,
+    indexedCount: 12,
+  },
+  // 8. Emoji initial and thousands separators. Fallback must be one whole
+  // glyph, and both header and footer must read "1,204".
+  {
+    handle: '@rocketdev',
+    name: '🚀 Rocket Dev',
+    avatarUrl: '/avatars/missing.png',
+    videoCount: 2000,
+    indexedCount: 1204,
+  },
+  // 9. Blank name. Falls back to the handle, initial is "N".
+  {
+    handle: '@nonamechannel',
+    name: '   ',
+    avatarUrl: '/avatars/missing.png',
+    videoCount: 5,
+    indexedCount: 5,
+    syncedLabel: '4 days ago',
+  },
+  // 10. Singular noun and a long unbroken name. Header says "1 video",
+  // the avatar must not shrink, the name must truncate.
+  {
+    handle: '@averylongchannelhandlethatkeepsgoingkj',
+    name: 'Supercalifragilisticexpialidociouschannelnameddc',
+    avatarUrl: '/avatars/missing.png',
+    videoCount: 1,
+    indexedCount: 0,
+  },
 ];
