@@ -1,4 +1,6 @@
 import ThemeSwitch from '@/components/theme/theme-switch';
+import { Skeleton } from '@/components/ui/skeleton';
+import { ClerkLoaded, ClerkLoading, Show, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Button } from '../button';
 import SiteLogo from './logo';
@@ -9,19 +11,34 @@ export default function Header() {
       <SiteLogo className="col-start-1 row-start-1" />
 
       <menu className="col-start-2 row-start-1 flex items-center justify-end gap-2 md:col-start-3">
-        <li>
-          <Button
-            variant="ghost"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Link href="/sign-in">Sign in</Link>
-          </Button>
+        <li className="flex items-center gap-2">
+          <ClerkLoading>
+            <Skeleton className="size-9 rounded-full" />
+          </ClerkLoading>
+
+          <ClerkLoaded>
+            <Show
+              when="signed-in"
+              fallback={
+                <>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="hidden text-muted-foreground hover:text-foreground sm:inline-flex"
+                  >
+                    <Link href="/sign-in">Sign in</Link>
+                  </Button>
+                  <Button size="sm">
+                    <Link href="/sign-up">Get started</Link>
+                  </Button>
+                </>
+              }
+            >
+              <UserButton appearance={{ elements: { avatarBox: 'size-9' } }} />
+            </Show>
+          </ClerkLoaded>
         </li>
-        <li>
-          <Button>
-            <Link href="/sign-up">Get started</Link>
-          </Button>
-        </li>
+
         <li className="ml-1">
           <ThemeSwitch />
         </li>
