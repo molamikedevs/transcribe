@@ -15,9 +15,8 @@ export default function SortBy({ handle, active }: Props) {
       {options.map(({ value, label }) => (
         <li key={value}>
           <Button
-            variant={active === value ? 'secondary' : 'ghost'}
             size="sm"
-            className="rounded-full font-mono text-xs"
+            className={`rounded-full font-mono text-xs border hover:bg-foreground hover:text-background border-secondary ${active === value ? 'bg-info text-foreground' : 'bg-transparent border text-foreground'}`}
           >
             <Link
               href={`/channels/${handle}?sort=${value}`}

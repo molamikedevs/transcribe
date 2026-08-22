@@ -7,3 +7,11 @@ type ChannelCardProps = {
   syncedLabel?: string;
   hasCaptions?: boolean;
 };
+
+type VideoCardProps = {
+  slug: string;
+  title: string;
+  duration: string;
+  lineCount: number;
+  publishedLabel: string;
+};

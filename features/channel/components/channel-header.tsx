@@ -19,9 +19,7 @@ export default function ChannelHeader({ handle }: { handle: string }) {
           <h1 className="truncate font-heading text-2xl font-bold tracking-tight sm:text-3xl">
             All-In Podcast
           </h1>
-          <p className="truncate font-mono text-sm text-muted-foreground">
-            @{handle}
-          </p>
+          <p className="truncate font-mono text-sm text-info">@{handle}</p>
 
           <dl className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-sm">
             <dt className="text-muted-foreground">videos</dt>
@@ -41,21 +39,30 @@ export default function ChannelHeader({ handle }: { handle: string }) {
 
       <menu className="flex shrink-0 items-center gap-2">
         <li>
-          <Button variant="outline" size="sm" className="font-mono">
-            <RefreshCw aria-hidden className="size-4" />
+          <Button variant="outline" size="sm" className="font-mono text-info">
+            <RefreshCw aria-hidden className="size-4 mr-1" />
             Resync
           </Button>
         </li>
         <li>
-          <Button variant="outline" size="sm" className="font-mono">
-            <Link
-              href={`https://youtube.com/@${handle}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              On YouTube
-              <ExternalLink aria-hidden className="size-4" />
-            </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            className="font-mono"
+            render={
+              <Link
+                href={`https://youtube.com/@${handle}`}
+                target="_blank"
+                rel="noreferrer"
+              />
+            }
+          >
+            <ExternalLink
+              data-icon="inline-end"
+              aria-hidden
+              className="size-3.5 mr-1"
+            />
+            On YouTube
           </Button>
         </li>
       </menu>
