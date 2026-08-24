@@ -50,3 +50,8 @@ type VideoMetaProps = Pick<
 >;
 
 type VideoActionsProps = Pick<VideoDetail, 'youtubeId'>;
+
+type TranscriptPanelProps = Pick<
+  VideoDetail,
+  'lineCount' | 'lines' | 'captionSource'
+>;
