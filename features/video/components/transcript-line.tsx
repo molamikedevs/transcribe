@@ -1,20 +1,36 @@
+import { cn } from '@/lib/utils';
+
 type TranscriptLineProps = {
   timestamp: string;
   text: string;
+  active?: boolean;
 };
 
 export default function TranscriptLine({
   timestamp,
   text,
+  active = false,
 }: TranscriptLineProps) {
   return (
-    <li className="group grid grid-cols-[auto_1fr] items-baseline gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-muted/50 sm:gap-4 sm:px-3">
-      <span className="font-mono text-xs text-muted-foreground tabular-nums transition-colors group-hover:text-info sm:text-sm">
+    <li
+      className={cn(
+        'group grid grid-cols-[auto_1fr] items-baseline gap-4 border-l-2 px-4 py-2.5 transition-colors sm:gap-6',
+        active
+          ? 'border-l-info bg-info/10'
+          : 'border-l-transparent hover:bg-muted/40',
+      )}
+    >
+      <span
+        className={cn(
+          'font-mono text-xs tabular-nums transition-colors sm:text-sm',
+          active
+            ? 'text-info'
+            : 'text-muted-foreground group-hover:text-foreground',
+        )}
+      >
         {timestamp}
       </span>
-      <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
-        {text}
-      </p>
+      <p className="text-sm leading-relaxed sm:text-[0.95rem]">{text}</p>
     </li>
   );
 }
