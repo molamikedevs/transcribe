@@ -167,3 +167,115 @@ export const videos: VideoCardProps[] = [
     publishedLabel: 'Jan 10, 2026',
   },
 ];
+
+export const video: VideoDetail = {
+  slug: 'e187-unit-economics-ai-capex-cycle',
+  youtubeId: 'dQw4w9WgXcQ',
+  title:
+    'E187: Unit economics, the AI capex cycle, and why marketplaces break at scale',
+  channelName: 'All-In Podcast',
+  channelHandle: 'allin',
+  publishedLabel: 'Mar 14, 2026',
+  duration: '1:52:04',
+  lineCount: 2481,
+  captionSource: 'auto-captions',
+  captionsPulledLabel: 'Mar 15, 2026',
+  lines: [
+    {
+      id: 'l-2496',
+      timestamp: '41:36',
+      seconds: 2496,
+      text: 'and I think that is the part people skip over when they pitch this.',
+    },
+    {
+      id: 'l-2504',
+      timestamp: '41:44',
+      seconds: 2504,
+      text: 'right, because the deck always shows the blended number.',
+    },
+    {
+      id: 'l-2511',
+      timestamp: '41:51',
+      seconds: 2511,
+      text: 'the blended number hides two businesses stacked on top of each other.',
+    },
+    {
+      id: 'l-2522',
+      timestamp: '42:02',
+      seconds: 2522,
+      text: 'one of them is a software business with eighty point margins.',
+    },
+    {
+      id: 'l-2531',
+      timestamp: '42:11',
+      seconds: 2531,
+      text: 'and the other one is a logistics company that loses four dollars a delivery.',
+    },
+    {
+      id: 'l-2538',
+      timestamp: '42:18',
+      seconds: 2538,
+      text: 'the whole argument falls apart once you look at the unit economics of the delivery leg.',
+    },
+    {
+      id: 'l-2549',
+      timestamp: '42:29',
+      seconds: 2549,
+      text: 'so what would have to be true for that to work at this scale?',
+    },
+    {
+      id: 'l-2557',
+      timestamp: '42:37',
+      seconds: 2557,
+      text: 'you would need route density that nobody outside the top four cities has.',
+    },
+    {
+      id: 'l-2566',
+      timestamp: '42:46',
+      seconds: 2566,
+      text: 'or you raise prices eleven percent and hope the cohort holds.',
+    },
+    {
+      id: 'l-2575',
+      timestamp: '42:55',
+      seconds: 2575,
+      text: 'nobody holds at eleven percent. that is not a real option.',
+    },
+    {
+      id: 'l-2584',
+      timestamp: '43:04',
+      seconds: 2584,
+      text: 'which is why the answer is always the same, shrink the footprint first.',
+    },
+    {
+      id: 'l-2594',
+      timestamp: '43:14',
+      seconds: 2594,
+      text: 'and that is the conversation the board never wants to have in year three.',
+    },
+    {
+      id: 'l-2603',
+      timestamp: '43:23',
+      seconds: 2603,
+      text: 'because shrinking looks like failure even when it is the only path.',
+    },
+    {
+      id: 'l-2611',
+      timestamp: '43:31',
+      seconds: 2611,
+      text: 'it looks like failure for exactly two quarters and then it looks like discipline.',
+    },
+    {
+      id: 'l-2620',
+      timestamp: '43:40',
+      seconds: 2620,
+      text: 'assuming you survive the two quarters, which is the whole bet.',
+    },
+    {
+      id: 'l-2628',
+      timestamp: '43:48',
+      seconds: 2628,
+      text: 'ok.',
+    },
+  ],
+};

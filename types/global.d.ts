@@ -15,3 +15,29 @@ type VideoCardProps = {
   lineCount: number;
   publishedLabel: string;
 };
+
+type RouteParams = {
+  params: Promise<{ handle: string }>;
+  searchParams: Promise<{ sort?: string; query?: string }>;
+};
+
+type TranscriptLine = {
+  id: string;
+  timestamp: string;
+  seconds: number;
+  text: string;
+};
+
+type VideoDetail = {
+  slug: string;
+  youtubeId: string;
+  title: string;
+  channelName: string;
+  channelHandle: string;
+  publishedLabel: string;
+  duration: string;
+  lineCount: number;
+  captionSource: 'auto-captions' | 'manual';
+  captionsPulledLabel: string;
+  lines: TranscriptLine[];
+};

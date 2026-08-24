@@ -3,12 +3,10 @@ import ChannelHeader from '@/features/channel/components/channel-header';
 import SortBy from '@/features/video/components/sort-by';
 import VideoList from '@/features/video/components/video-list';
 
-interface Props {
-  params: Promise<{ handle: string }>;
-  searchParams: Promise<{ sort?: string }>;
-}
-
-export default async function ChannelHandle({ params, searchParams }: Props) {
+export default async function ChannelHandle({
+  params,
+  searchParams,
+}: RouteParams) {
   const { handle } = await params;
   const { sort = 'newest' } = await searchParams;
 
