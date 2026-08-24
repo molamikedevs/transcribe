@@ -41,3 +41,5 @@ type VideoDetail = {
   captionsPulledLabel: string;
   lines: TranscriptLine[];
 };
+
+type VideoPlayerProps = Pick<VideoDetail, 'title'>;

@@ -5,13 +5,13 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { video } from '@/constants/index';
 import TranscriptLine from '@/features/video/components/transcript-line';
+import VideoPlayer from '@/features/video/components/video-player';
 import {
   ChevronDown,
   ChevronUp,
   Copy,
   Download,
   ExternalLink,
-  Play,
   Search,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -20,15 +20,7 @@ export default function VideoSlug() {
   return (
     <section className="grid gap-8 lg:h-[calc(100vh-5rem)] lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-0">
       <div className="min-w-0 px-4 sm:px-6 lg:overflow-y-auto lg:py-8 lg:pr-8">
-        <figure className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-muted">
-          <p
-            aria-hidden
-            className="absolute inset-0 grid place-items-center text-muted-foreground"
-          >
-            <Play className="size-12" />
-          </p>
-          <figcaption className="sr-only">Player for {video.title}</figcaption>
-        </figure>
+        <VideoPlayer {...video} />
 
         <hgroup className="mt-6">
           <h1 className="font-heading text-xl font-bold tracking-tight text-balance sm:text-2xl">
