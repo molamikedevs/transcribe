@@ -43,3 +43,8 @@ type VideoDetail = {
 };
 
 type VideoPlayerProps = Pick<VideoDetail, 'title'>;
+
+type VideoMetaProps = Pick<
+  VideoDetail,
+  'title' | 'channelName' | 'channelHandle' | 'lineCount' | 'publishedLabel'
+>;

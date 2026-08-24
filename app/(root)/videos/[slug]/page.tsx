@@ -1,10 +1,10 @@
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { video } from '@/constants/index';
 import TranscriptLine from '@/features/video/components/transcript-line';
+import VideoMeta from '@/features/video/components/video-meta';
 import VideoPlayer from '@/features/video/components/video-player';
 import {
   ChevronDown,
@@ -21,29 +21,7 @@ export default function VideoSlug() {
     <section className="grid gap-8 lg:h-[calc(100vh-5rem)] lg:grid-cols-[minmax(0,1fr)_28rem] lg:gap-0">
       <div className="min-w-0 px-4 sm:px-6 lg:overflow-y-auto lg:py-8 lg:pr-8">
         <VideoPlayer {...video} />
-
-        <hgroup className="mt-6">
-          <h1 className="font-heading text-xl font-bold tracking-tight text-balance sm:text-2xl">
-            {video.title}
-          </h1>
-          <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-muted-foreground sm:text-sm">
-            <Avatar className="size-6">
-              <AvatarFallback className="bg-info/15 text-[0.6rem] text-info">
-                {video.channelName.slice(0, 1)}
-              </AvatarFallback>
-            </Avatar>
-            <Link
-              href={`/channels/${video.channelHandle}`}
-              className="text-foreground hover:text-info"
-            >
-              {video.channelName}
-            </Link>
-            <span aria-hidden>·</span>
-            <span>{video.publishedLabel}</span>
-            <span aria-hidden>·</span>
-            <span>{video.lineCount.toLocaleString()} lines</span>
-          </p>
-        </hgroup>
+        <VideoMeta {...video} />
 
         <menu className="mt-6 flex flex-wrap items-center gap-2">
           <li>
