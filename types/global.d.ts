@@ -41,3 +41,17 @@ type VideoDetail = {
   captionsPulledLabel: string;
   lines: TranscriptLine[];
 };
+
+type VideoPlayerProps = Pick<VideoDetail, 'title'>;
+
+type VideoMetaProps = Pick<
+  VideoDetail,
+  'title' | 'channelName' | 'channelHandle' | 'lineCount' | 'publishedLabel'
+>;
+
+type VideoActionsProps = Pick<VideoDetail, 'youtubeId'>;
+
+type TranscriptPanelProps = Pick<
+  VideoDetail,
+  'lineCount' | 'lines' | 'captionSource'
+>;
