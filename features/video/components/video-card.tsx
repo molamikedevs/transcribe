@@ -2,21 +2,13 @@ import { Badge } from '@/components/ui/badge';
 import { Play } from 'lucide-react';
 import Link from 'next/link';
 
-type Props = {
-  slug: string;
-  title: string;
-  duration: string;
-  lineCount: number;
-  publishedLabel: string;
-};
-
 export default function VideoCard({
   slug,
   title,
   duration,
   lineCount,
   publishedLabel,
-}: Props) {
+}: VideoCardProps) {
   return (
     <li>
       <article className="group relative">
