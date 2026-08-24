@@ -48,3 +48,5 @@ type VideoMetaProps = Pick<
   VideoDetail,
   'title' | 'channelName' | 'channelHandle' | 'lineCount' | 'publishedLabel'
 >;
+
+type VideoActionsProps = Pick<VideoDetail, 'youtubeId'>;

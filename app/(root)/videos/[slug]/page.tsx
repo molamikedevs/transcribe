@@ -4,17 +4,10 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { video } from '@/constants/index';
 import TranscriptLine from '@/features/video/components/transcript-line';
+import VideoActions from '@/features/video/components/video-actions';
 import VideoMeta from '@/features/video/components/video-meta';
 import VideoPlayer from '@/features/video/components/video-player';
-import {
-  ChevronDown,
-  ChevronUp,
-  Copy,
-  Download,
-  ExternalLink,
-  Search,
-} from 'lucide-react';
-import Link from 'next/link';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 
 export default function VideoSlug() {
   return (
@@ -22,45 +15,7 @@ export default function VideoSlug() {
       <div className="min-w-0 px-4 sm:px-6 lg:overflow-y-auto lg:py-8 lg:pr-8">
         <VideoPlayer {...video} />
         <VideoMeta {...video} />
-
-        <menu className="mt-6 flex flex-wrap items-center gap-2">
-          <li>
-            <Button variant="outline" size="sm">
-              <Copy data-icon="inline-start" aria-hidden className="size-3.5" />
-              Copy transcript
-            </Button>
-          </li>
-          <li>
-            <Button variant="outline" size="sm">
-              <Download
-                data-icon="inline-start"
-                aria-hidden
-                className="size-3.5"
-              />
-              Download .srt
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="outline"
-              size="sm"
-              render={
-                <Link
-                  href={`https://youtube.com/watch?v=${video.youtubeId}`}
-                  target="_blank"
-                  rel="noreferrer"
-                />
-              }
-            >
-              <ExternalLink
-                data-icon="inline-start"
-                aria-hidden
-                className="size-3.5"
-              />
-              Open on YouTube
-            </Button>
-          </li>
-        </menu>
+        <VideoActions {...video} />
 
         <Separator className="mt-8" />
 
