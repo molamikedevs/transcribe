@@ -2,11 +2,13 @@ import BackgroundWrapper from '@/components/ui/layout/background-wrapper';
 import ChannelHeader from '@/features/channel/components/channel-header';
 import SortBy from '@/features/video/components/sort-by';
 import VideoList from '@/features/video/components/video-list';
+import VideoListSkeleton from '@/features/video/components/video-list-skeleton';
+import { Suspense } from 'react';
 
 export default async function ChannelHandle({
   params,
   searchParams,
-}: RouteParams) {
+}: RouteParams<{ handle: string }>) {
   const { handle } = await params;
   const { sort = 'newest' } = await searchParams;
 
@@ -25,10 +27,12 @@ export default async function ChannelHandle({
             </p>
           </hgroup>
 
-          <SortBy handle={handle} active={sort} />
+          <SortBy />
         </header>
 
-        <VideoList />
+        <Suspense key={`${handle}-${sort}`} fallback={<VideoListSkeleton />}>
+          <VideoList handle={handle} sort={sort as SortOrder} />
+        </Suspense>
       </section>
     </BackgroundWrapper>
   );
