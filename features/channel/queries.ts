@@ -2,7 +2,7 @@ import { formatRelativeTime } from '@/lib/format';
 import { createClient } from '@/lib/supabase/server';
 import 'server-only';
 
-export async function getLibraryChannels(): Promise<ChannelCardProps[]> {
+export async function getsChannels(): Promise<ChannelCardProps[]> {
   const supabase = await createClient();
 
   const { data, error } = await supabase
