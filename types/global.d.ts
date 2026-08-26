@@ -13,7 +13,7 @@ type ChannelCardProps = {
   syncError?: string;
 };
 
-type VideoCardProps = {
+type VideoParams = {
   slug: string;
   title: string;
   thumbnailUrl: string | null;
@@ -22,19 +22,33 @@ type VideoCardProps = {
   publishedLabel: string;
   captionSource: CaptionSource | null;
 };
+type SortOrder = 'newest' | 'oldest' | 'longest' | 'shortest';
 
-type ChannelRouteParams = {
-  params: Promise<{ handle: string }>;
-  searchParams: Promise<{
-    sort?: string;
-    query?: string;
-    page?: string;
-    pageSize?: string;
-  }>;
+type PaginatedParams = {
+  page: number;
+  pageSize: number;
+  query?: string;
 };
 
-type VideoRouteParams = {
-  params: Promise<{ slug: string }>;
+type SortedPaginatedParams = PaginatedParams & {
+  sort: SortOrder;
+};
+
+type PaginatedResult<T> = {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+};
+
+type RouteParams<
+  TParams extends Record<string, string> = Record<string, never>,
+> = {
+  params: Promise<TParams>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 type TranscriptLine = {

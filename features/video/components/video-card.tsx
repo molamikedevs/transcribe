@@ -8,7 +8,7 @@ export default function VideoCard({
   duration,
   lineCount,
   publishedLabel,
-}: VideoCardProps) {
+}: VideoParams) {
   return (
     <li>
       <article className="group relative">

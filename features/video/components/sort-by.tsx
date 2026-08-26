@@ -1,30 +1,47 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { DEFAULT_SORT, SORT_ORDERS } from '@/constants/states';
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-const options = [
-  { value: 'newest', label: 'newest' },
-  { value: 'longest', label: 'longest' },
-  { value: 'lines', label: 'most lines' },
-];
+const LABELS: Record<SortOrder, string> = {
+  newest: 'newest',
+  oldest: 'oldest',
+  longest: 'longest',
+  shortest: 'shortest',
+};
 
-type Props = { handle: string; active: string };
+export default function SortBy() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const active = searchParams.get('sort') ?? DEFAULT_SORT;
 
-export default function SortBy({ handle, active }: Props) {
+  function hrefFor(value: SortOrder) {
+    const next = new URLSearchParams(searchParams);
+    next.set('sort', value);
+    next.delete('page');
+    return `${pathname}?${next}`;
+  }
+
   return (
     <menu className="flex items-center gap-2">
-      {options.map(({ value, label }) => (
+      {SORT_ORDERS.map((value) => (
         <li key={value}>
           <Button
             size="sm"
-            className={`rounded-full font-mono text-xs border hover:bg-foreground hover:text-background border-secondary ${active === value ? 'bg-info text-foreground' : 'bg-transparent border text-foreground'}`}
+            variant="outline"
+            className="rounded-full font-mono text-xs"
+            data-active={active === value || undefined}
+            render={
+              <Link
+                href={hrefFor(value)}
+                aria-current={active === value ? 'true' : undefined}
+                scroll={false}
+              />
+            }
           >
-            <Link
-              href={`/channels/${handle}?sort=${value}`}
-              aria-current={active === value ? 'true' : undefined}
-              scroll={false}
-            >
-              {label}
-            </Link>
+            {LABELS[value]}
           </Button>
         </li>
       ))}
